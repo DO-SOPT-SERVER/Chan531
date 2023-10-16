@@ -42,4 +42,9 @@ public class HealthCheckController {
     public ResponseEntity<HealthCheckResponse> healthCheckV5() {
         return ResponseEntity.ok(new HealthCheckResponse());
     }
+
+    @GetMapping("/v6")
+    public AssignmentResponse healthCheckV6() {
+        return new AssignmentResponse(200, "OK", true);
+    }
 }
