@@ -47,4 +47,13 @@ public class HealthCheckController {
     public AssignmentResponse healthCheckV6() {
         return new AssignmentResponse(200, "OK", true);
     }
+
+    @GetMapping("/v7")
+    public AssignmentResponse healthCheckV7() {
+        return AssignmentResponse.builder()
+                .code(200)
+                .status("OK")
+                .success(true)
+                .build();
+    }
 }
