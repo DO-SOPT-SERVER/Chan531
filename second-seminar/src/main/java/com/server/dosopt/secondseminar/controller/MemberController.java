@@ -20,7 +20,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
     // 특정 사용자 정보 단건 조회 V1
     @GetMapping("/{memberId}")
     public ResponseEntity<MemberGetResponse> getMemberProfileV1(@PathVariable Long memberId) {
