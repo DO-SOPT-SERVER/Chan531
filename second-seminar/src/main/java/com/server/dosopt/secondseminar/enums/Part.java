@@ -1,4 +1,4 @@
-package com.server.dosopt.secondseminar;
+package com.server.dosopt.secondseminar.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

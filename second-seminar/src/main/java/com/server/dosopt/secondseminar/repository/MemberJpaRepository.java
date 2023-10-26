@@ -1,6 +1,6 @@
 package com.server.dosopt.secondseminar.repository;
 
-import com.server.dosopt.secondseminar.entity.Member;
+import com.server.dosopt.secondseminar.domain.entity.Member;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 

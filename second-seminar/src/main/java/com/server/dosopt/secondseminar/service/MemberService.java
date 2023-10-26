@@ -1,10 +1,10 @@
 package com.server.dosopt.secondseminar.service;
 
-import com.server.dosopt.secondseminar.SOPT;
+import com.server.dosopt.secondseminar.domain.SOPT;
 import com.server.dosopt.secondseminar.dto.request.MemberCreateRequest;
 import com.server.dosopt.secondseminar.dto.request.MemberProfileUpdateRequest;
 import com.server.dosopt.secondseminar.dto.response.MemberGetResponse;
-import com.server.dosopt.secondseminar.entity.Member;
+import com.server.dosopt.secondseminar.domain.entity.Member;
 import com.server.dosopt.secondseminar.repository.MemberJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;

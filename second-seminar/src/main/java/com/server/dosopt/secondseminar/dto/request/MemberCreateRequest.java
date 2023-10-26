@@ -1,6 +1,6 @@
 package com.server.dosopt.secondseminar.dto.request;
 
-import com.server.dosopt.secondseminar.SOPT;
+import com.server.dosopt.secondseminar.domain.SOPT;
 import lombok.Data;
 
 @Data

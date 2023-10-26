@@ -1,5 +1,6 @@
-package com.server.dosopt.secondseminar;
+package com.server.dosopt.secondseminar.domain;
 
+import com.server.dosopt.secondseminar.enums.Part;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;

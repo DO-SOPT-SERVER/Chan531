@@ -1,6 +1,6 @@
-package com.server.dosopt.secondseminar.entity;
+package com.server.dosopt.secondseminar.domain.entity;
 
-import com.server.dosopt.secondseminar.SOPT;
+import com.server.dosopt.secondseminar.domain.SOPT;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
