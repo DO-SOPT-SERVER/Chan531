@@ -2,6 +2,7 @@ package com.server.dosopt.secondseminar.controller;
 
 import com.server.dosopt.secondseminar.dto.request.MemberCreateRequest;
 import com.server.dosopt.secondseminar.dto.request.MemberProfileUpdateRequest;
+import com.server.dosopt.secondseminar.dto.request.MemberUpdateRequest;
 import com.server.dosopt.secondseminar.dto.response.MemberGetResponse;
 import com.server.dosopt.secondseminar.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +47,13 @@ public class MemberController {
     }
 
     // 수정
+    @PutMapping("/{memberId}")
+    public ResponseEntity<Void> updateMember(@PathVariable Long memberId, @RequestBody MemberUpdateRequest request) {
+        memberService.updateMember(memberId, request);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Sopt 수정
     @PatchMapping("/{memberId}")
     public ResponseEntity<Void> updateMemberSoptInfo(@PathVariable Long memberId, @RequestBody MemberProfileUpdateRequest request) {
         memberService.updateSOPT(memberId, request);

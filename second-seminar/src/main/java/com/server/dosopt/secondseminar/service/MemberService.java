@@ -3,6 +3,7 @@ package com.server.dosopt.secondseminar.service;
 import com.server.dosopt.secondseminar.domain.SOPT;
 import com.server.dosopt.secondseminar.dto.request.MemberCreateRequest;
 import com.server.dosopt.secondseminar.dto.request.MemberProfileUpdateRequest;
+import com.server.dosopt.secondseminar.dto.request.MemberUpdateRequest;
 import com.server.dosopt.secondseminar.dto.response.MemberGetResponse;
 import com.server.dosopt.secondseminar.domain.entity.Member;
 import com.server.dosopt.secondseminar.repository.MemberJpaRepository;
@@ -35,14 +36,6 @@ public class MemberService {
         return MemberGetResponse.of(memberJpaRepository.findByIdOrThrow(id));
     }
 
-    /*public MemberGetResponse getMemberByNickname(String nickname) {
-        try {
-            return MemberGetResponse.of(memberJpaRepository.findByNickname(nickname));
-        } catch (Exception e) {
-            throw new IllegalStateException("존재하지 않는 회원입니다.");
-        }
-    }*/
-
     public List<MemberGetResponse> getMembers() {
         return memberJpaRepository.findAll()
                 .stream()
@@ -59,6 +52,12 @@ public class MemberService {
                 .sopt(request.sopt())
                 .build());
         return member.getId().toString();
+    }
+
+    @Transactional
+    public void updateMember(Long memberId, MemberUpdateRequest request) {
+        Member member = memberJpaRepository.findByIdOrThrow(memberId);
+        member.updateMember(request.name(), request.nickname(), request.age(), request.sopt());
     }
 
     @Transactional

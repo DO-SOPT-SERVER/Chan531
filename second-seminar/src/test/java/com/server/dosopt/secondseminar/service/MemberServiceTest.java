@@ -3,6 +3,7 @@ package com.server.dosopt.secondseminar.service;
 import com.server.dosopt.secondseminar.domain.SOPT;
 import com.server.dosopt.secondseminar.dto.request.MemberCreateRequest;
 import com.server.dosopt.secondseminar.dto.request.MemberProfileUpdateRequest;
+import com.server.dosopt.secondseminar.dto.request.MemberUpdateRequest;
 import com.server.dosopt.secondseminar.enums.Part;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
