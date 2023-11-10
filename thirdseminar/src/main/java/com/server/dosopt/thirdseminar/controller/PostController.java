@@ -1,6 +1,5 @@
 package com.server.dosopt.thirdseminar.controller;
 
-import com.server.dosopt.thirdseminar.domain.Post;
 import com.server.dosopt.thirdseminar.dto.request.post.PostCreateRequest;
 import com.server.dosopt.thirdseminar.dto.request.post.PostUpdateRequest;
 import com.server.dosopt.thirdseminar.dto.response.post.PostGetResponse;
@@ -17,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/post")
 public class PostController {
 
-    private static final String CUSTOM_AUTH_ID = "X-Auth_Id";
+    private static final String CUSTOM_AUTH_ID = "X-Auth-Id";
 
     private final PostService postService;
 

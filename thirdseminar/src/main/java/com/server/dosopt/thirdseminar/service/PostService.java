@@ -1,5 +1,6 @@
 package com.server.dosopt.thirdseminar.service;
 
+import com.server.dosopt.thirdseminar.domain.Category;
 import com.server.dosopt.thirdseminar.domain.Member;
 import com.server.dosopt.thirdseminar.domain.Post;
 import com.server.dosopt.thirdseminar.dto.request.post.PostCreateRequest;
@@ -20,16 +21,17 @@ public class PostService {
 
     private final PostJpaRepository postJpaRepository;
     private final MemberJpaRepository memberJpaRepository;
+    private final CategoryService categoryService;
 
     public PostGetResponse getById(Long postId) {
         Post post = postJpaRepository.findByIdOrThrow(postId);
-        return PostGetResponse.of(post);
+        return PostGetResponse.of(post, getCategoryByPost(post));
     }
 
     public List<PostGetResponse> getPosts(Long memberId) {
         return postJpaRepository.findAllByMemberId(memberId)
                 .stream()
-                .map(post -> PostGetResponse.of(post))
+                .map(post -> PostGetResponse.of(post, getCategoryByPost(post)))
                 .toList();
     }
 
@@ -55,5 +57,9 @@ public class PostService {
     @Transactional
     public void deleteById(Long postId) {
         postJpaRepository.deleteById(postId);
+    }
+
+    private Category getCategoryByPost(Post post) {
+        return categoryService.getByCategoryId(post.getCategoryId());
     }
 }

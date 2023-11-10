@@ -25,11 +25,16 @@ public class Post extends BaseTimeEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @Embedded
+    @Column(name = "category_id")
+    private CategoryId categoryId;
+
     @Builder
-    public Post(String title, String content, Member member) {
+    public Post(String title, String content, Member member, CategoryId categoryId) {
         this.title = title;
         this.content = content;
         this.member = member;
+        this.categoryId = categoryId;
     }
 
     public void updateContent(String content) {
