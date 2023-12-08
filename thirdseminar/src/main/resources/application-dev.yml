@@ -1,11 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/demo?serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    url: jdbc:mysql://${DATABASE_ENDPOINT_URL}:3306/${DATABASE_NAME}?useSSL=false
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
 
   config:
+    import: optional:application-secret.properties
     activate:
       on-profile: dev
 
@@ -13,3 +14,18 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: create
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 3MB
+      max-request-size: 10MB
+
+aws-property:
+  access-key: ${ACCESS_KEY}
+  secret-key: ${SECRET_KEY}
+  aws-region: ap-northeast-2
+  s3-bucket-name: do-sopt-demo-bucket-chan
+
+jwt:
+  secret: ${JWT_SECRET_KEY}
